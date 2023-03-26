@@ -1,0 +1,57 @@
+import re
+import math
+in_a1 = input('Nhập vào a1: ')
+in_pd = input('Nhập vào pd: ')
+c = input('Nhập vào cơ sở: ')
+if c=='e':
+    c = math.e
+else:
+    c = int(c)
+tmp = re.findall(r'\d+',in_a1)
+a1 = int(tmp[0])/int(tmp[1])
+tmp = re.findall(r'\d+',in_pd)
+pd = int(tmp[0])/int(tmp[1])
+ps = 1-pd
+a2 = 1-a1
+b1_a1 =pd
+b2_a2 =pd
+b1_a2 =ps
+b2_a1 =ps
+b1a1 = a1*b1_a1
+b1a2 = a2*b1_a2
+b2a1 = a1*b2_a1
+b2a2 = a2*b2_a2
+b1 = b1a1+b1a2
+b2 = b2a1+b2a2
+a1_b1 = b1a1/b1
+a1_b2 = b2a1/b2
+a2_b1 = b1a2/b1
+a2_b2 = b2a2/b2
+HA= -1*(a1*math.log(a1,c)+a2*math.log(a2,c))
+HB= -1*(b1*math.log(b1,c)+b2*math.log(b2,c))
+HA_b1 = -1*(a1_b1*math.log(a1_b1,c)+a2_b1*math.log(a2_b1,c))
+HA_b2 = -1*(a1_b2*math.log(a1_b2,c)+a2_b2*math.log(a2_b2,c))
+HA_B = b1*HA_b1+b2*HA_b2
+HB_a1 = -1*(b1_a1*math.log(b1_a1,c)+b2_a1*math.log(b2_a1,c))
+HB_a2 = -1*(b1_a2*math.log(b1_a2,c)+b2_a2*math.log(b2_a2,c))
+HB_A = a1*HB_a1+a2*HB_a2
+HAB = HA+HB_A
+IAB = HA-HA_B
+# print('H(A) =',HA)
+# print('H(B) =',HB)
+# print('H(A/B) =',HA_B)
+# print('H(B/A) =',HB_A)
+# print('H(AB) =',HAB)
+# print('I(AB) =',IAB)
+# print('H(A/b1) =',HA_b1)
+# print('H(A/b2) =',HA_b2)
+# print('H(B/a1) =',HB_a1)
+# print('H(B/a2) =',HB_a2)
+# print('I(a1/b2) =',-math.log(a1_b2,c))
+# print('I(a1/b1) =',-math.log(a1_b1,c))
+# print('I(a2/b2) =',-math.log(a2_b2,c))
+# print('I(a2/b1) =',-math.log(a2_b1,c))
+# print('I(a1,b2) =',-math.log(math.log(a1,c)+math.log(a1_b2,c)))
+# print('I(a1,b1) =',-math.log(math.log(a1,c)+math.log(a1_b1,c)))
+# print('I(a2,b2) =',-math.log(math.log(a2,c)+math.log(a2_b2,c)))
+# print('I(a2,b2) =',-math.log(math.log(a2,c)+math.log(a2_b1,c)))
