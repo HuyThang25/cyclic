@@ -56,5 +56,4 @@ else:
     plain = input('Nhập vào bản rõ: ')
     tmp = div_and_mod('0'*(n-k)+plain,g)
     print('Bản mã = ',add('0'*(n-k)+plain,tmp[1]))
-https://drive.google.com/drive/mobile/folders/13T4DcERtfugxdU9tSM4rUJACdLOZfBA8/1RF84HZblWU0V2TSWUR9OU2xcCKBhHncG?usp=sharing&fbclid=IwAR2Aj3YbK-Jk9cbZCT_IX8yf9URAXyHGKeEe8AcDRsbMbd2_X78Nhw5vAo4&sort=13&direction=a
         
